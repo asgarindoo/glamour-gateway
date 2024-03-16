@@ -16,7 +16,7 @@ exports.findOrder = (req, res) => {
       $lookup: {
         from: "products",
         localField: "cart_items",
-        foreignField: "kamu ga berguna", //I don't know what's going on with this part
+        foreignField: "productId",
         as: "products",
       },
     },

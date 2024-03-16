@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/style.css --watch"
   },
   "dependencies": {
+    "axios": "^1.6.7",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
@@ -21,8 +23,11 @@
     "@vue/cli-plugin-pwa": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "autoprefixer": "^10.4.18",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
   },
   "eslintConfig": {
     "root": true,
