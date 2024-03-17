@@ -11,6 +11,6 @@ export default {};
 <style scoped>
 * {
   background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/ice-age.png");
+  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
 }
 </style>
