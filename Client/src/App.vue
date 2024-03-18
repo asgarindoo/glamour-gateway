@@ -8,9 +8,4 @@
 export default {};
 </script>
 
-<style scoped>
-* {
-  background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
-}
-</style>
+<style></style>

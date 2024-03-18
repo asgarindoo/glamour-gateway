@@ -9,10 +9,12 @@
     "dev": "npx tailwindcss -i ./src/index.css -o ./src/styles/style.css --watch"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "axios": "^1.6.7",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
+    "vue-js-counter": "^1.0.3",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
