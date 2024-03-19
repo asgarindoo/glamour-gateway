@@ -11,11 +11,12 @@
 
       <!-- Product Grid Section -->
       <div
-        class="col-span-3 grid grid-cols-3 gap-6 mt-10 animate__animated animate__fadeInRight ">
+        class="col-span-3 grid grid-cols-3 gap-6 mt-10 animate__animated animate__fadeInRight">
         <ProductsItem
           v-for="product in products"
           :key="product.id"
-          :product="product" />
+          :product="product"
+          class="font-quicksand" />
       </div>
     </div>
   </div>
@@ -25,11 +26,13 @@
 import axios from "axios";
 import ProductsItem from "@/components/ProductsItem.vue";
 import NavbarHome from "@/components/NavbarHome.vue";
+import CategorySidebar from "@/components/CategorySidebar.vue";
 
 export default {
   components: {
     ProductsItem,
     NavbarHome,
+    CategorySidebar,
   },
   data() {
     return {

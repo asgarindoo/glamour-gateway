@@ -6,19 +6,19 @@
         class="w-full h-64 object-cover object-center"
         :src="product.img"
         :alt="product.title" />
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2 text-gray-900 overflow-hidden">
+      <div class="px-4 py-4">
+        <div class="font-bold text-md mb-2 text-gray-900 overflow-hidden">
           {{ product.title }}
         </div>
-        <p class="text-gray-700 text-base h-16 overflow-y-auto">
+        <p class="text-gray-700 text-sm h-16 overflow-y-auto">
           {{ product.description }}
         </p>
       </div>
-      <div class="px-6 py-4 flex justify-between items-center bg-slate-800">
-        <p class="text-white text-lg font-semibold">{{ product.price }}</p>
+      <div class="px-4 py-4 flex justify-between items-center bg-slate-800">
+        <p class="text-white text-md font-semibold">{{ product.price }}</p>
         <router-link
           :to="{ name: 'detail-product', params: { id: product.id } }"
-          class="bg-slate-600 px-3 py-2 rounded-sm text-white hover:text-black hover:bg-slate-300 font-semibold">
+          class="bg-white px-4 py-2 text-sm rounded-full text-slate-800 hover:text-white hover:bg-slate-500 font-semibold">
           View Details
         </router-link>
       </div>

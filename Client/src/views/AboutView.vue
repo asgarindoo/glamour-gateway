@@ -8,7 +8,7 @@
       <transition
         name="custom"
         class="animate__animated animate__fadeInUp animate__delay-1s">
-        <p class="text-8xl ml-20 font-switzer tracking-widest font-extralight">
+        <p class="text-7xl ml-20 font-switzer tracking-widest font-extralight">
           Glamourous Beauty
         </p>
       </transition>
@@ -16,7 +16,7 @@
         name="custom"
         class="animate__animated animate__fadeInUp animate__delay-1s">
         <p
-          class="ml-36 mt-5 mr-20 font-switzer tracking-widest font-extralight text-8xl text-right">
+          class="ml-36 mt-5 mr-20 font-switzer tracking-widest font-extralight text-7xl text-right">
           Professional Service
         </p>
       </transition>
