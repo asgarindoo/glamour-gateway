@@ -1,5 +1,5 @@
-const dbconfig = require("../../config/db.config.js");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 mongoose.Promise = global.Promise;
 mongoose.set("strictQuery", false);
@@ -7,7 +7,6 @@ mongoose.set("strictQuery", false);
 const db = {};
 
 db.mongoose = mongoose;
-db.url = dbconfig.url;
 db.product = require("./product.model.js")(mongoose);
 db.order = require("./order.models.js")(mongoose);
 

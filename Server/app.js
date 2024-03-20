@@ -1,20 +1,40 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 const cors = require("cors");
+const session = require("express-session");
+const passport = require("passport");
+require("dotenv").config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// Gunakan express-session middleware
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Inisialisasi Passport setelah express-session
+app.use(passport.initialize());
+app.use(passport.session());
+
+const mongoURI = process.env.MONGODB_URL;
+
 const db = require("./app/models");
+require("./app/config/auth")(passport);
+
 db.mongoose
-  .connect(db.url)
+  .connect(mongoURI)
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to MongoDB Atlas");
   })
   .catch((err) => {
-    console.log("Cannot connect to the database!", err);
+    console.log("Error connecting to MongoDB Atlas:", err);
     process.exit();
   });
 
@@ -26,6 +46,7 @@ app.get("/", (req, res) => {
 
 require("./app/routes/product.routes")(app);
 require("./app/routes/order.routes")(app);
+require("./app/routes/auth.routes")(app);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
