@@ -17,9 +17,14 @@ module.exports = (app) => {
     passport.authenticate("google", { scope: ["profile"] })
   );
 
-  router.get("google/redirect", (req, res) => {
-    res.send("redirected");
-  });
+  app.get(
+    "/oauth2/redirect/google",
+    passport.authenticate("google", {
+      failureRedirect: "/login-failure",
+      successRedirect: "/login-success",
+      failureMessage: true,
+    })
+  );
 
   app.use("/api/auth", router);
 };

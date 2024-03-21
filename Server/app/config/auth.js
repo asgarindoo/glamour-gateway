@@ -1,5 +1,5 @@
-// Contoh auth.js
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const db = require("../models");
 
 module.exports = function (passport) {
   passport.use(
@@ -7,13 +7,26 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "https://localhost:8000/oauth2/redirect/google",
+        callbackURL: "http://localhost:8000/oauth2/redirect/google",
         scope: ["profile"],
         state: true,
       },
-      (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
-        return done(null, profile);
+      function (accessToken, refreshToken, profile, done) {
+        const newUser = new db.user({
+          name: profile.displayName,
+          googleid: profile.id,
+        });
+
+        console.log("info user: ", newUser);
+
+        newUser.save((err, savedUser) => {
+          if (err) {
+            console.error("Error saving new user:", err);
+            return done(err, false);
+          }
+          console.log("New user saved:", savedUser);
+          return done(null, savedUser);
+        });
       }
     )
   );

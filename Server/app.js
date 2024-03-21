@@ -23,6 +23,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
 const mongoURI = process.env.MONGODB_URL;
 
 const db = require("./app/models");
@@ -42,6 +49,15 @@ app.get("/", (req, res) => {
   res.json({
     message: "Hello World!",
   });
+});
+
+app.get("/login-failure", (req, res, next) => {
+  console.log(req.session);
+  res.send("Login Attempt Failed.");
+});
+
+app.get("/login-success", (req, res) => {
+  res.send(req.user);
 });
 
 require("./app/routes/product.routes")(app);
