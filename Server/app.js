@@ -4,6 +4,10 @@ const port = 8000;
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const userController = require("./app/controllers/user.controller");
+const db = require("./app/models");
+
 require("dotenv").config();
 
 app.use(express.json());
@@ -13,7 +17,7 @@ app.use(cors());
 // Gunakan express-session middleware
 app.use(
   session({
-    secret: "secret",
+    secret: "djewr832ijeu3eiwd9j23j",
     resave: false,
     saveUninitialized: true,
   })
@@ -23,6 +27,41 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "http://localhost:8000/api/auth/redirect/google",
+      scope: ["profile", "email"],
+      state: true,
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      console.log("profile:", profile);
+      try {
+        let findUser = await userController.findOne({ googleId: profile.id });
+        const user = db.user;
+
+        if (!findUser) {
+          let newUser = new user({
+            googleid: profile.id,
+            displayName: profile.displayName,
+            email: profile.emails[0].value,
+            image: profile.photos[0].value,
+          });
+
+          await newUser.save();
+          return done(null, newUser);
+        }
+
+        return done(null, findUser);
+      } catch (error) {
+        return done(error, null);
+      }
+    }
+  )
+);
+
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
@@ -31,9 +70,6 @@ passport.deserializeUser(function (user, done) {
 });
 
 const mongoURI = process.env.MONGODB_URL;
-
-const db = require("./app/models");
-require("./app/config/auth")(passport);
 
 db.mongoose
   .connect(mongoURI)
@@ -53,11 +89,11 @@ app.get("/", (req, res) => {
 
 app.get("/login-failure", (req, res, next) => {
   console.log(req.session);
-  res.send("Login Attempt Failed.");
+  res.redirect("http://localhost:8080/login");
 });
 
 app.get("/login-success", (req, res) => {
-  res.send(req.user);
+  res.redirect("http://localhost:8080");
 });
 
 require("./app/routes/product.routes")(app);

@@ -4,6 +4,7 @@ import AboutView from "../views/AboutView.vue";
 import ProductsView from "../views/product/ProductsView.vue";
 import DetailProduct from "../views/product/DetailProduct.vue";
 import ShoppingCart from "../views/cart/ShoppingCart.vue";
+import LoginView from "@/views/LoginView.vue";
 // import NotFound from "../views/errors/NotFound.vue";
 
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
     path: "/cart",
     name: "cart",
     component: ShoppingCart,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
   },
   // {
   //   path: "/*",

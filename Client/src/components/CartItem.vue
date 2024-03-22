@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <img :src="product.img" alt="product Image" />
-    <h3>{{ product.title }}</h3>
-    <p>{{ formatPrice(product.price) }}</p>
-    <button>Remove</button>
+  <div class="border-b border-slate-800 py-4 flex items-center mr-20 mt-10">
+    <img :src="product.img" alt="product Image" class="w-16 h-16 mr-4" />
+    <div>
+      <h3 class="font-bold">{{ product.title }}</h3>
+      <p class="text-gray-600">{{ formatPrice(product.price) }}</p>
+    </div>
+    <button
+      class="ml-auto bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+      Remove
+    </button>
   </div>
 </template>
 
@@ -12,7 +17,10 @@ export default {
   props: ["product"],
   methods: {
     formatPrice(price) {
-      return price.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
+      return price.toLocaleString("id-ID", {
+        style: "currency",
+        currency: "IDR",
+      });
     },
   },
   mounted() {
@@ -21,4 +29,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* * {
+  border: red 1px solid;
+} */
+</style>

@@ -13,6 +13,12 @@
       >
     </div>
     <div>
+      <router-link :to="{ name: 'login' }" class="px-4 -mr-10">
+        <button
+          class="bg-pink-300 hover:bg-pink-500 text-white py-2 px-4 rounded mr-3">
+          Login
+        </button>
+      </router-link>
       <router-link :to="{ name: 'cart' }" class="px-4 -mr-10">
         <button
           class="bg-pink-300 hover:bg-pink-500 text-white py-2 px-4 rounded">

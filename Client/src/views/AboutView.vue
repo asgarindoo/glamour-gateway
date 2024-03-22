@@ -5,16 +5,12 @@
       class="z-50 animate__animated animate__fadeInDown border-none navbar" />
 
     <div class="mx-20 mt-10">
-      <transition
-        name="custom"
-        class="animate__animated animate__fadeInUp animate__delay-1s">
+      <transition name="custom" class="animate__animated animate__fadeInDown">
         <p class="text-7xl ml-20 font-switzer tracking-widest font-extralight">
           Glamourous Beauty
         </p>
       </transition>
-      <transition
-        name="custom"
-        class="animate__animated animate__fadeInUp animate__delay-1s">
+      <transition name="custom" class="animate__animated animate__fadeInDown">
         <p
           class="ml-36 mt-5 mr-20 font-switzer tracking-widest font-extralight text-7xl text-right">
           Professional Service

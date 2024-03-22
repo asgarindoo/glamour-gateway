@@ -36,7 +36,7 @@
           <div class="flex justify-center lg:justify-start xl:justify-start">
             <img
               src="../assets/rosa-rafael.jpg"
-              class="sm:block md:block lg:block xl:block mx-5 lg:mx-0 xl:mx-0 w-72 h-14 sm:w-full sm:h-24 lg:w-36 lg:h-80 xl:w-36 xl:h-80 hover:h-40 transition-all duration-500 object-cover shadow-sm" />
+              class="sm:block md:block lg:block xl:block mx-5 lg:mx-0 xl:mx-0 w-72 h-14 sm:w-full sm:h-24 lg:w-36 lg:h-80 xl:w-36 xl:h-80 object-cover shadow-sm" />
           </div>
         </div>
       </transition>
