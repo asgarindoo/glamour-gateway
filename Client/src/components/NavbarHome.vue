@@ -1,30 +1,49 @@
 <template>
-  <div
-    class="py-4 px-6 flex justify-between items-center border-b-2 border-slate-500 mx-20 font-quicksand text-xl font-medium">
-    <div class="flex space-x-12 -ml-6">
-      <router-link :to="{ name: 'home' }" class="hover:text-gray-300"
-        >Home</router-link
-      >
-      <router-link :to="{ name: 'about' }" class="hover:text-gray-300"
-        >About</router-link
-      >
-      <router-link :to="{ name: 'products' }" class="hover:text-gray-300"
-        >Product</router-link
-      >
+  <div class="font-quicksand border-b-2 border-slate-500 mx-10 md:mx-20">
+    <div class="py-4 flex justify-between items-center text-xl font-medium">
+      <div class="flex items-center space-x-12">
+        <!-- Logo atau Judul Situs -->
+        <router-link :to="{ name: 'home' }" class="hover:text-gray-300"
+          >Home</router-link
+        >
+        <router-link :to="{ name: 'about' }" class="hover:text-gray-300"
+          >About</router-link
+        >
+        <router-link :to="{ name: 'products' }" class="hover:text-gray-300"
+          >Product</router-link
+        >
+      </div>
+      <!-- Tombol hamburger untuk tampilan mobile -->
+      <button @click="toggleMenu" class="block md:hidden">
+        <svg
+          class="w-6 h-6 text-slate-800"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <!-- Daftar menu untuk tampilan desktop -->
+      <div class="hidden md:flex items-center space-x-4">
+        <router-link :to="{ name: 'login' }">Login</router-link>
+        <router-link :to="{ name: 'cart' }">Cart</router-link>
+      </div>
     </div>
-    <div>
-      <router-link :to="{ name: 'login' }" class="px-4 -mr-10">
-        <button
-          class="bg-pink-300 hover:bg-pink-500 text-white py-2 px-4 rounded mr-3">
-          Login
-        </button>
-      </router-link>
-      <router-link :to="{ name: 'cart' }" class="px-4 -mr-10">
-        <button
-          class="bg-pink-300 hover:bg-pink-500 text-white py-2 px-4 rounded">
-          Cart
-        </button>
-      </router-link>
+    <!-- Daftar menu untuk tampilan mobile -->
+    <div :class="{ block: showMenu, hidden: !showMenu }" class="md:hidden">
+      <router-link
+        :to="{ name: 'login' }"
+        class="block py-2 px-4 hover:bg-slate-800 hover:text-white"
+        >Login</router-link
+      >
+      <router-link
+        :to="{ name: 'cart' }"
+        class="block py-2 px-4 hover:bg-slate-800 hover:text-white"
+        >Cart</router-link
+      >
     </div>
   </div>
 </template>
@@ -32,6 +51,16 @@
 <script>
 export default {
   name: "NavbarHome",
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+  },
 };
 </script>
 

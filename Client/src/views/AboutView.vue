@@ -1,26 +1,27 @@
 <template>
   <div class="font-quicksand max-h-screen">
     <!-- NavbarHome -->
-    <NavbarHome
-      class="z-50 animate__animated animate__fadeInDown border-none navbar" />
+    <NavbarHome class="z-50 animate__animated animate__fadeInDown navbar" />
 
-    <div class="mx-20 mt-10">
+    <div class="mx-5 md:mx-20 mt-10">
       <transition name="custom" class="animate__animated animate__fadeInDown">
-        <p class="text-7xl ml-20 font-switzer tracking-widest font-extralight">
+        <p
+          class="text-3xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl ml-5 md:ml-20 font-switzer tracking-widest font-extralight">
           Glamourous Beauty
         </p>
       </transition>
       <transition name="custom" class="animate__animated animate__fadeInDown">
         <p
-          class="ml-36 mt-5 mr-20 font-switzer tracking-widest font-extralight text-7xl text-right">
+          class="text-3xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl ml-5 md:ml-36 mt-5 mr-5 md:mr-20 font-switzer tracking-widest font-extralight text-right">
           Professional Service
         </p>
       </transition>
     </div>
 
     <!-- Counter Grid -->
-    <div class="mx-20 mt-20">
-      <div class="mx-20 grid grid-cols-2 gap-10 justify-center">
+    <div class="mx-5 md:mx-20 mt-36">
+      <div
+        class="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-center max-w-6xl">
         <!-- Customers -->
         <div
           class="text-center bg-slate-800 text-white rounded-md shadow-sm p-6 animate__animated animate__fadeInDown">
@@ -88,75 +89,71 @@
       </div>
     </div>
     <!-- end section -->
-    <div>
+
+    <!-- Who we are section -->
+    <div
+      class="mx-5 md:mx-20 mt-28 md:mt-48 flex flex-col md:flex-row items-center justify-between">
       <div
-        class="mx-auto gap-20 max-w-6xl mt-40 flex items-center justify-between">
-        <div class="w-1/2 pr-8 animate__animated animate__fadeInLeft">
-          <h2 class="text-6xl font-semibold mb-8">Who we are</h2>
-          <p class="text-xl text-gray-700">
-            Your premier destination for luxury beauty shopping from around the
-            globe. We specialize in offering a personalized Jastip (Jasa Titip)
-            service, ensuring that you have access to the most coveted beauty
-            products from international markets.
-          </p>
-        </div>
-        <div
-          class="grid grid-cols-2 gap-2 w-1/2 bg-cover animate__animated animate__fadeInRight">
-          <img
-            src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
-            alt=""
-            class="rounded-lg" />
-          <img
-            src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
-            alt=""
-            class="rounded-lg" />
-          <img
-            src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
-            alt=""
-            class="rounded-lg" />
-          <img
-            src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
-            alt=""
-            class="rounded-lg" />
-        </div>
-      </div>
-      <div class="mx-56 mt-36 text-center animate__animated animate__fadeInUp">
-        <h2 class="text-6xl font-semibold mb-8">Our Mission</h2>
-        <p class="text-xl text-gray-700 mb-10">
-          At Glamour Gateway, we are committed to providing beauty enthusiasts
-          with unparalleled access to the world's finest beauty products. Our
-          mission is to make luxury beauty shopping a seamless and delightful
-          experience, allowing you to explore and indulge in the latest trends
-          and innovations from renowned brands worldwide.
+        class="w-full mb-10 md:w-1/2 pr-0 md:pr-8 animate__animated animate__fadeInLeft">
+        <h2 class="text-3xl md:text-6xl font-semibold mb-8">Who we are</h2>
+        <p class="text-lg md:text-xl text-gray-700">
+          Your premier destination for luxury beauty shopping from around the
+          globe. We specialize in offering a personalized Jastip (Jasa Titip)
+          service, ensuring that you have access to the most coveted beauty
+          products from international markets.
         </p>
+      </div>
+      <div
+        class="grid grid-cols-2 sm:grid-cols- md:grid-cols-2 gap-2 w-full md:w-1/2 bg-cover animate__animated animate__fadeInRight">
+        <img
+          src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
+          alt=""
+          class="rounded-lg" />
+        <img
+          src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
+          alt=""
+          class="rounded-lg" />
+        <img
+          src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
+          alt=""
+          class="rounded-lg" />
+        <img
+          src="../assets/photo-1610844228349-76b56e6ac462.jpeg"
+          alt=""
+          class="rounded-lg" />
       </div>
     </div>
 
+    <!-- Our Mission section -->
     <div
-      class="mx-56 mt-36 text-center h-screen animate__animated animate__fadeInUp">
-      <h2 class="text-6xl font-semibold mb-8">How It Works</h2>
-      <p class="text-xl text-gray-700 mt-8">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta ab
-        eaque labore quod, nisi possimus modi eum sequi, voluptatum non impedit
-        sint porro laudantium eius dolorum voluptas omnis ea? Dolorem deserunt
-        consequuntur perferendis tempora officiis facilis laudantium.
-        Necessitatibus, perferendis vitae nihil nisi repellat, veritatis unde
-        velit iste animi, dolorum quasi.
+      class="mx-5 md:mx-20 mt-20 md:mt-36 text-center animate__animated animate__fadeInUp">
+      <h2 class="text-3xl md:text-6xl font-semibold mb-8">Our Mission</h2>
+      <p class="text-lg md:text-xl text-gray-700 mb-10">
+        At Glamour Gateway, we are committed to providing beauty enthusiasts
+        with unparalleled access to the world's finest beauty products. Our
+        mission is to make luxury beauty shopping a seamless and delightful
+        experience, allowing you to explore and indulge in the latest trends and
+        innovations from renowned brands worldwide.
       </p>
-      <p class="text-xl text-gray-700 mt-8">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo amet
-        hic optio nostrum vel aliquam porro quisquam, eum libero similique
-        itaque! Tempore aperiam quam voluptate, corporis laboriosam soluta
-        magnam expedita. Cumque laboriosam itaque, dicta doloremque ipsum autem
-        modi quos unde excepturi numquam nesciunt voluptas. Nobis ea voluptatum
-        recusandae dolor aspernatur.
-      </p>
-      <p class="text-xl text-gray-700 mt-8">
-        Effortless Delivery: Sit back and relax as we take care of the
-        logistics. We handle all aspects of shipping, customs clearance, and
-        delivery to ensure that your beauty treasures arrive safely and swiftly
-        at your doorstep.
-      </p>
+    </div>
+
+    <!-- How It Works section -->
+    <div
+      class="mx-5 md:mx-20 mt-20 md:mt-36 text-center h-screen animate__animated animate__fadeInUp">
+      <h2 class="text-3xl md:text-6xl font-semibold mb-8">How It Works</h2>
+      <!-- Your existing code for "How It Works" section here -->
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio unde
+      quidem, fugiat necessitatibus reprehenderit autem eveniet minima iste
+      provident consequuntur voluptatum facere debitis quos aspernatur, nostrum
+      dicta, ipsam natus ipsum? Consequatur reiciendis deleniti labore inventore
+      nobis ab excepturi suscipit, eum nam consequuntur, quidem assumenda maxime
+      optio. Voluptate sequi pariatur quos quibusdam consequuntur adipisci
+      facere maxime libero hic sit autem, natus vel nobis exercitationem
+      similique dignissimos, distinctio cupiditate? Commodi libero quos
+      blanditiis nam quae nesciunt. Veniam quo, perspiciatis fugiat tempora
+      deleniti officiis, dicta, repellat voluptate esse saepe nihil quibusdam
+      adipisci? Eum voluptatem accusantium ab? Corporis itaque accusamus
+      blanditiis perferendis! Provident, nam.
     </div>
   </div>
 </template>
