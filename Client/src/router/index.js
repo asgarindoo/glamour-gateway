@@ -5,7 +5,7 @@ import ProductsView from "../views/product/ProductsView.vue";
 import DetailProduct from "../views/product/DetailProduct.vue";
 import ShoppingCart from "../views/cart/ShoppingCart.vue";
 import LoginView from "@/views/LoginView.vue";
-// import NotFound from "../views/errors/NotFound.vue";
+import AdminView from "@/views/admin/AdminView.vue";
 
 const routes = [
   {
@@ -17,6 +17,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: AdminView,
   },
   {
     path: "/products",
