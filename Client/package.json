@@ -11,9 +11,11 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "axios": "^1.6.7",
+    "chart.js": "^4.4.2",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
+    "vue-chartjs": "^5.3.0",
     "vue-google-signin-button": "^1.0.4",
     "vue-js-counter": "^1.0.3",
     "vue-router": "^4.0.3",
