@@ -25,7 +25,7 @@
         </p>
         <router-link
           :to="{ name: 'detail-product', params: { id: product.id } }"
-          class="bg-white px-2 py-1 md:px-2 md:py-1 lg:px-4 lg:py-2 xl:px-4 xl:py-2 text-xs sm:text-xs md:text-xs lg:text-md xl:text-md rounded-full text-slate-800 hover:text-white hover:bg-slate-500 font-semibold ml-2">
+          class="bg-white px-2 py-1 md:px-2 md:py-1 lg:px-4 lg:py-2 xl:px-4 xl:py-2 text-xs sm:text-xs md:text-xs lg:text-md xl:text-md rounded-sm text-slate-800 hover:text-slate-900 hover:bg-gray-200 font-semibold ml-2">
           Details
         </router-link>
       </div>

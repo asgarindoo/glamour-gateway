@@ -16,27 +16,19 @@
 
       <transition name="custom" class="animate__animated animate__slideInDown">
         <div
-          class="grid mt-7 gap-2 lg:grid-cols-4 lg:gap-5 lg:mr-24 lg:mt-0 xl:grid-cols-4 xl:gap-5 xl:mr-20 xl:mt-0">
-          <div class="flex justify-center lg:justify-start xl:justify-start">
+          class="grid grid-cols-1 sm:grid-cols-2 mx-5 sm:mx-10 mt-7 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-5 lg:mr-24 lg:mt-0 xl:grid-cols-4 xl:gap-5 xl:mr-20 xl:mt-0">
+          <div
+            v-for="(photo, index) in photos"
+            :key="index"
+            class="flex justify-center lg:justify-start xl:justify-start">
             <img
-              src="../assets/rosa-rafael.jpg"
-              class="sm:block md:block lg:block xl:block mx-5 lg:mx-0 xl:mx-0 w-72 h-14 sm:w-full sm:h-24 lg:w-36 lg:h-96 xl:w-36 xl:h-96 object-cover shadow-sm" />
-          </div>
-          <div class="flex justify-center lg:justify-start xl:justify-start">
-            <img
-              src="../assets/rosa-rafael.jpg"
-              class="sm:block md:block lg:block xl:block mx-5 lg:mx-0 xl:mx-0 w-72 h-14 sm:w-full sm:h-24 lg:w-36 lg:h-80 xl:w-36 xl:h-80 object-cover shadow-sm item" />
-          </div>
-          <div class="flex justify-center lg:justify-start xl:justify-start">
-            <img
-              src="../assets/rosa-rafael.jpg"
-              class="sm:block md:block lg:block xl:block mx-5 lg:mx-0 xl:mx-0 w-72 h-14 sm:w-full sm:h-24 lg:w-36 lg:h-96 xl:w-36 xl:h-96 object-cover shadow-sm" />
-          </div>
-
-          <div class="flex justify-center lg:justify-start xl:justify-start">
-            <img
-              src="../assets/rosa-rafael.jpg"
-              class="sm:block md:block lg:block xl:block mx-5 lg:mx-0 xl:mx-0 w-72 h-14 sm:w-full sm:h-24 lg:w-36 lg:h-80 xl:w-36 xl:h-80 object-cover shadow-sm" />
+              :src="require(`@/assets/${photo}`)"
+              :class="{
+                'lg:block xl:block w-full h-24 sm:h-48 md:h-48 lg:w-36 lg:h-96 xl:w-36 xl:h-96 object-cover shadow-sm':
+                  index % 2 === 1,
+                'lg:block xl:block w-full h-24 sm:h-48 md:h-48 lg:w-36 lg:h-80 xl:w-36 xl:h-80 object-cover shadow-sm':
+                  index % 2 === 0,
+              }" />
           </div>
         </div>
       </transition>
@@ -45,7 +37,7 @@
       name="custom"
       class="animate__animated animate__fadeInUp animate__delay-1s">
       <p
-        class="ml-5 mt-10 text-4xl tracking-widest font-switzer sm:ml-10 sm:text-6xl md:ml-20 md:text-7xl lg:ml-20 lg:text-8xl xl:ml-20 xl:text-9xl">
+        class="ml-5 mt-10 text-5xl tracking-widest font-switzer sm:ml-10 sm:text-6xl md:ml-20 md:text-7xl lg:ml-20 lg:text-8xl xl:ml-20 xl:text-9xl">
         GLAMOUR
       </p>
     </transition>
@@ -53,7 +45,7 @@
       name="custom"
       class="animate__animated animate__fadeInUp animate__delay-1s">
       <p
-        class="mr-5 text-4xl tracking-widest font-switzer sm:mr-10 sm:text-6xl md:mr-20 md:text-7xl lg:mr-20 lg:text-8xl xl:mr-20 xl:text-9xl text-right">
+        class="mr-5 text-5xl tracking-widest font-switzer sm:mr-10 sm:text-6xl md:mr-20 md:text-7xl lg:mr-20 lg:text-8xl xl:mr-20 xl:text-9xl text-right">
         * GATEWAY
       </p>
     </transition>
@@ -68,6 +60,16 @@ export default {
   name: "HomeView",
   components: {
     NavbarHome,
+  },
+  data() {
+    return {
+      photos: [
+        "rosa-rafael.jpg",
+        "rosa-rafael.jpg",
+        "rosa-rafael.jpg",
+        "rosa-rafael.jpg",
+      ],
+    };
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b border-slate-800 py-4 flex items-center mr-20 mt-10">
+  <div class="border-b border-slate-800 py-4 flex items-center mt-10">
     <img :src="product.img" alt="product Image" class="w-16 h-16 mr-4" />
     <div>
       <h3 class="font-bold">{{ product.title }}</h3>
@@ -15,6 +15,7 @@
 <script>
 export default {
   props: ["product"],
+
   methods: {
     formatPrice(price) {
       return price.toLocaleString("id-ID", {

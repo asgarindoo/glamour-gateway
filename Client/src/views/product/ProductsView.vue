@@ -1,12 +1,12 @@
 <template>
   <div>
     <NavbarHome
-      class="z-50 border-none navbar animate__animated animate__fadeInDown" />
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mx-5 md:mx-20">
+      class="border-none navbar animate__animated animate__fadeInDown" />
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mx-5 md:mx-10 lg:mx-20">
       <!-- Category Section -->
       <div class="col-span-1 mt-10 md:mt-0">
         <!-- Add your category component here -->
-        <CategorySidebar />
+        <CategorySidebar class="sticky top-0" />
       </div>
 
       <!-- Product Grid Section -->
@@ -21,7 +21,8 @@
     </div>
 
     <!-- Pagination -->
-    <div class="flex justify-center mt-5 mb-10">
+    <div
+      class="flex justify-center mt-5 mx-5 mb-10 md:ml-[28%] md:mr-10 lg:mr-20">
       <button
         v-if="currentPage > 1"
         @click="setCurrentPage(currentPage - 1)"

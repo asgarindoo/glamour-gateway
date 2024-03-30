@@ -3,17 +3,17 @@
     <!-- NavbarHome -->
     <NavbarHome class="z-50 animate__animated animate__fadeInDown navbar" />
 
-    <div class="mx-5 md:mx-20 mt-10">
+    <div class="mx-10 md:mx-20 mt-10">
       <transition name="custom" class="animate__animated animate__fadeInDown">
         <p
-          class="text-3xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl ml-5 md:ml-20 font-switzer tracking-widest font-extralight">
+          class="text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl ml-5 md:ml-20 font-switzer tracking-widest font-extralight">
           Glamourous Beauty
         </p>
       </transition>
       <transition name="custom" class="animate__animated animate__fadeInDown">
         <p
-          class="text-3xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl ml-5 md:ml-36 mt-5 mr-5 md:mr-20 font-switzer tracking-widest font-extralight text-right">
-          Professional Service
+          class="text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl ml-5 md:ml-36 mt-5 mr-5 md:mr-20 font-switzer tracking-widest font-extralight text-right">
+          Profesional Service
         </p>
       </transition>
     </div>

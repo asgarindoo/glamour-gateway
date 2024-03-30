@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen font-quicksand">
+  <div class="h-screen font-quicksand animate__animated animate__fadeInDown">
     <div class="max-w-md mx-auto p-4 mt-36">
       <h2 class="text-2xl font-bold mb-4">Login or Sign Up</h2>
       <form @submit.prevent="loginOrSignUp" class="mb-4">
