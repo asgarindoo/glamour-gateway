@@ -36,22 +36,41 @@
             type="search"
             class="px-4 py-2 md:w-36 lg:w-full xl:w-full ml-5"
             placeholder="Search..." />
-          <button class="px-4 text-white bg-slate-900 rounded-md">
-            <i class="fas fa-search p-2"></i>
+          <button class="px-4 py-2 text-white bg-slate-900 rounded-md">
+            <i class="fas fa-search"></i>
           </button>
         </div>
-        <!-- Login Icon -->
-        <router-link
-          :to="{ name: 'login' }"
-          class="hover:text-gray-300 bg-slate-900 text-white p-2 rounded-md text-sm">
-          <i class="fas fas fa-user mr-2"></i> Login
-        </router-link>
         <!-- Cart Icon -->
         <router-link
           :to="{ name: 'cart' }"
           class="hover:text-gray-300 bg-slate-900 text-white p-2 rounded-md text-sm">
           <i class="fas fa-shopping-cart mr-2"></i> Cart
         </router-link>
+        <!-- Profile Info and Logout Button -->
+        <template v-if="isAuthenticated">
+          <button
+            @click="logout"
+            class="hover:text-gray-300 bg-slate-900 text-white p-2 rounded-md text-sm">
+            <i class="fas fa-sign-out-alt mr-2"></i>
+            Logout
+          </button>
+          <button class="text-slate-900 focus:outline-none">
+            <img
+              class="w-10 h-10 rounded-full object-cover border-2 border-slate-900 shadow-md"
+              v-if="user.picture"
+              :src="user.picture"
+              alt="User Avatar" />
+          </button>
+        </template>
+
+        <template v-else>
+          <!-- Login Button -->
+          <button
+            @click="login"
+            class="hover:text-gray-300 bg-slate-900 text-white p-2 rounded-md text-sm">
+            <i class="fas fa-sign-out-alt mr-2"></i> Login
+          </button>
+        </template>
       </div>
     </div>
     <!-- Daftar menu untuk tampilan mobile -->
@@ -66,34 +85,80 @@
           Search
         </button>
       </div>
-      <!-- Login Icon -->
-      <router-link
-        :to="{ name: 'login' }"
-        class="block py-2 px-4 hover:bg-slate-800 hover:text-white">
-        <i class="fas fa-user mr-4"></i> Login
-      </router-link>
       <!-- Cart Icon -->
       <router-link
         :to="{ name: 'cart' }"
-        class="block py-2 px-4 hover:bg-slate-800 hover:text-white">
+        class="block w-full py-2 px-4 hover:bg-slate-800 hover:text-white">
         <i class="fas fa-shopping-cart mr-4"></i> Cart
       </router-link>
+      <!-- Profile Info and Logout Button (Mobile) -->
+      <template v-if="isAuthenticated">
+        <div class="relative" @click="toggleDropdown">
+          <img
+            v-if="user.picture"
+            :src="user.picture"
+            alt="Profile Picture"
+            class="w-8 h-8 rounded-full cursor-pointer" />
+          <div
+            v-if="isDropdownOpen"
+            class="absolute right-0 mt-2 bg-white rounded-sm shadow">
+            <span>{{ user.nickname }}</span>
+            <button
+              @click="logout"
+              class="block w-full py-2 px-4 hover:bg-slate-800 hover:text-white text-start">
+              <i class="fas fa-sign-out-alt mr-4"></i> Logout
+            </button>
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <!-- Login Button -->
+        <button
+          @click="login"
+          class="hover:text-gray-300 bg-slate-900 text-white p-2 rounded-md text-sm">
+          <i class="fas fa-sign-out-alt mr-2"></i> Login
+        </button>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
+import { useAuth0 } from "@auth0/auth0-vue";
+import { ref } from "vue";
+
 export default {
   name: "NavbarHome",
+  setup() {
+    const { loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
+    const isDropdownOpen = ref(false);
+
+    const login = () => {
+      loginWithRedirect();
+    };
+
+    const toggleMenu = () => {
+      this.showMenu = !this.showMenu;
+    };
+
+    const toggleDropdown = () => {
+      isDropdownOpen.value = !isDropdownOpen.value;
+    };
+
+    return {
+      login,
+      logout,
+      user,
+      isAuthenticated,
+      toggleMenu,
+      toggleDropdown,
+      isDropdownOpen,
+    };
+  },
   data() {
     return {
       showMenu: false,
     };
-  },
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu;
-    },
   },
 };
 </script>
