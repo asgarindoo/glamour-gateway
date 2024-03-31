@@ -1,7 +1,7 @@
 <template>
   <div class="font-quicksand max-h-screen">
     <NavbarHome
-      class="z-50 animate__animated animate__fadeInDown animate__delay-1s" />
+      class="animate__animated animate__fadeInDown animate__delay-1s" />
 
     <div class="flex flex-col lg:flex-row xl:flex-row">
       <transition name="custom" class="animate__animated animate__fadeInLeft">
@@ -49,17 +49,23 @@
         * GATEWAY
       </p>
     </transition>
+
+    <div>
+      <FooterVue />
+    </div>
   </div>
 </template>
 
 <script>
 import "animate.css";
 import NavbarHome from "@/components/NavbarHome.vue";
+import FooterVue from "../components/Footer.vue";
 
 export default {
   name: "HomeView",
   components: {
     NavbarHome,
+    FooterVue,
   },
   data() {
     return {

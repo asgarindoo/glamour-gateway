@@ -22,7 +22,7 @@
 
     <!-- Pagination -->
     <div
-      class="flex justify-center mt-5 mx-5 mb-10 md:ml-[28%] md:mr-10 lg:mr-20">
+      class="flex justify-center mt-10 mx-5 mb-10 md:ml-[28%] md:mr-10 lg:mr-20">
       <button
         v-if="currentPage > 1"
         @click="setCurrentPage(currentPage - 1)"
@@ -50,6 +50,9 @@
         Next
       </button>
     </div>
+    <div>
+      <FooterVue />
+    </div>
   </div>
 </template>
 
@@ -59,11 +62,14 @@ import ProductsItem from "@/components/ProductsItem.vue";
 import NavbarHome from "@/components/NavbarHome.vue";
 import CategorySidebar from "@/components/CategorySidebar.vue";
 
+import FooterVue from "../../components/Footer.vue";
+
 export default {
   components: {
     ProductsItem,
     NavbarHome,
     CategorySidebar,
+    FooterVue,
   },
   data() {
     return {

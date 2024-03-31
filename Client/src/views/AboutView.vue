@@ -6,7 +6,7 @@
     <div class="mx-10 md:mx-20 mt-10">
       <transition name="custom" class="animate__animated animate__fadeInDown">
         <p
-          class="text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl ml-5 md:ml-20 font-switzer tracking-widest font-extralight">
+          class="text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl ml-5 md:ml-20 font-switzer tracking-widest font-extralight -z-10">
           Glamourous Beauty
         </p>
       </transition>
@@ -155,6 +155,10 @@
       adipisci? Eum voluptatem accusantium ab? Corporis itaque accusamus
       blanditiis perferendis! Provident, nam.
     </div>
+
+    <div>
+      <FooterVue />
+    </div>
   </div>
 </template>
 
@@ -162,12 +166,14 @@
 import "animate.css";
 import VueJsCounter from "vue-js-counter";
 import NavbarHome from "@/components/NavbarHome.vue";
+import FooterVue from "@/components/Footer.vue";
 
 export default {
   name: "HomeView",
   components: {
     NavbarHome,
     VueJsCounter,
+    FooterVue,
   },
 };
 </script>

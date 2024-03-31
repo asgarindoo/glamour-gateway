@@ -11,9 +11,14 @@
         <div
           class="font-bold text-base md:text-xs lg:text-lg mb-2 text-gray-900 overflow-hidden">
           {{ product.title }}
+          <p
+            class="text-gray-700 text-sm md:text-xs lg:text-md h-4 font-medium">
+            {{ product.category }} - From {{ product.country }}
+          </p>
         </div>
+
         <p
-          class="text-gray-700 text-sm md:text-xs lg:text-md h-6 sm:h-6 md:h-6 lg:h-20 xl:h-20 overflow-y-auto">
+          class="text-gray-700 text-sm md:text-xs lg:text-md h-6 sm:h-6 md:h-6 lg:h-10 xl:h-10 overflow-y-auto">
           {{ product.description }}
         </p>
       </div>

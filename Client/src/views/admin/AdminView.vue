@@ -9,8 +9,8 @@
       <nav class="py-6 mx-1 text-sm">
         <div class="w-24 h-24 rounded-full object-cover bg-gray-200 mx-auto">
           <img
-            class=""
-            src="../../assets/logoLetterG-NoBG.png"
+            class="rounded-full"
+            src="https://media.istockphoto.com/id/1201523529/vector/g-letter-logo-formed-by-two-parallel-lines-with-noise-texture.jpg?s=612x612&w=0&k=20&c=MRGeKl4BSUJxm1KkLUyx4kkRyLF0yhf5P1XnlurGhy8="
             alt="Admin Page Image" />
         </div>
         <ul class="mt-6">
