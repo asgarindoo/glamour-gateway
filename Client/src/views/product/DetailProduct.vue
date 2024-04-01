@@ -192,10 +192,39 @@
 </template>
 
 <script>
+import { useAuth0 } from "@auth0/auth0-vue";
 import axios from "axios";
+import { ref } from "vue";
 import NavbarHome from "@/components/NavbarHome.vue";
 
 export default {
+  setup() {
+    const { user, isAuthenticated } = useAuth0();
+    const sub = ref(null); // Gunakan ref untuk menyimpan nilai sub
+
+    const addToCart = async (productId) => {
+      try {
+        // Jika pengguna sudah terautentikasi, atur nilai sub
+        if (isAuthenticated.value) {
+          sub.value = user.value.sub;
+        } else {
+          console.error("User is not authenticated"); // Menampilkan pesan kesalahan jika pengguna tidak terautentikasi
+          return; // Menghentikan proses lebih lanjut jika pengguna tidak terautentikasi
+        }
+
+        await axios.post(`http://localhost:8000/api/cart/${sub.value}`, {
+          productId: productId,
+          // quantity: this.quantity,
+        });
+
+        console.log("Item berhasil ditambahkan ke keranjang");
+      } catch (error) {
+        console.error("Error adding item to cart:", error);
+      }
+    };
+
+    return { addToCart };
+  },
   data() {
     return {
       product: {},
@@ -412,18 +441,6 @@ export default {
     decrementQuantity() {
       if (this.quantity > 1) {
         this.quantity--;
-      }
-    },
-    async addToCart(productId) {
-      try {
-        await axios.post("http://localhost:8000/api/cart/1", {
-          productId: productId,
-          quantity: this.quantity,
-        });
-
-        console.log("Item berhasil ditambahkan ke keranjang");
-      } catch (error) {
-        console.error("Error adding item to cart:", error);
       }
     },
     getProductDescription(categoryProduct) {

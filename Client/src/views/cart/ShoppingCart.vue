@@ -66,9 +66,9 @@ export default {
   },
   async created() {
     try {
-      const userId = "1";
+      const user_sub = "google-oauth2|101941178864776477703";
       const response = await axios.get(
-        `http://localhost:8000/api/cart/${userId}`
+        `http://localhost:8000/api/cart/${user_sub}`
       );
       this.products = response.data[0].products;
     } catch (error) {

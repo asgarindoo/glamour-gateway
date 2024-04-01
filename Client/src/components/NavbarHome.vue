@@ -94,20 +94,21 @@
       <!-- Profile Info and Logout Button (Mobile) -->
       <template v-if="isAuthenticated">
         <div class="relative" @click="toggleDropdown">
-          <img
-            v-if="user.picture"
-            :src="user.picture"
-            alt="Profile Picture"
-            class="w-8 h-8 rounded-full cursor-pointer" />
-          <div
-            v-if="isDropdownOpen"
-            class="absolute right-0 mt-2 bg-white rounded-sm shadow">
-            <span>{{ user.nickname }}</span>
+          <button
+            @click="logout"
+            class="block w-full py-2 px-4 hover:bg-slate-800 hover:text-white text-start">
+            <i class="fas fa-sign-out-alt mr-4"></i> Logout
+          </button>
+          <div class="flex flex-col-2">
             <button
-              @click="logout"
-              class="block w-full py-2 px-4 hover:bg-slate-800 hover:text-white text-start">
-              <i class="fas fa-sign-out-alt mr-4"></i> Logout
+              class="rounded-full object-cover border-2 border-slate-900 shadow-md my-2 ml-2">
+              <img
+                v-if="user.picture"
+                :src="user.picture"
+                alt="Profile Picture"
+                class="w-8 h-8 rounded-full cursor-pointer" />
             </button>
+            <p class="ml-2 mt-4 text-sm">Hi {{ user.nickname }}</p>
           </div>
         </div>
       </template>
@@ -115,7 +116,7 @@
         <!-- Login Button -->
         <button
           @click="login"
-          class="hover:text-gray-300 bg-slate-900 text-white p-2 rounded-md text-sm">
+          class="block w-full py-2 px-4 hover:bg-slate-800 hover:text-white text-start">
           <i class="fas fa-sign-out-alt mr-2"></i> Login
         </button>
       </template>
@@ -124,13 +125,14 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import { useAuth0 } from "@auth0/auth0-vue";
-import { ref } from "vue";
 
 export default {
   name: "NavbarHome",
   setup() {
     const { loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
+    const showMenu = ref(false);
     const isDropdownOpen = ref(false);
 
     const login = () => {
@@ -138,13 +140,28 @@ export default {
     };
 
     const toggleMenu = () => {
-      this.showMenu = !this.showMenu;
+      showMenu.value = !showMenu.value;
     };
 
     const toggleDropdown = () => {
       isDropdownOpen.value = !isDropdownOpen.value;
     };
 
+    // Fungsi untuk menyimpan data pengguna ke local storage setelah pengguna berhasil masuk
+    const saveUserToLocalStorage = (userData) => {
+      localStorage.setItem("sub", JSON.stringify(userData));
+    };
+
+    // Dijalankan setelah komponen dimuat
+    onMounted(() => {
+      // Periksa apakah pengguna telah masuk dan simpan data pengguna ke local storage jika ya
+      if (isAuthenticated.value && user.value) {
+        saveUserToLocalStorage(user.value);
+        saveUserToLocalStorage(user.value.sub);
+      }
+    });
+
+    // Gunakan `return` untuk mengekspos ke template
     return {
       login,
       logout,
@@ -152,12 +169,8 @@ export default {
       isAuthenticated,
       toggleMenu,
       toggleDropdown,
+      showMenu,
       isDropdownOpen,
-    };
-  },
-  data() {
-    return {
-      showMenu: false,
     };
   },
 };
