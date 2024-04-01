@@ -31,7 +31,6 @@ app.get("/", (req, res) => {
 require("./app/routes/product.routes")(app);
 require("./app/routes/cart.routes")(app);
 require("./app/routes/order.routes")(app);
-require("./app/routes/auth.routes")(app);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

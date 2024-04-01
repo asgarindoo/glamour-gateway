@@ -18,7 +18,8 @@
     "vue": "^3.2.13",
     "vue-chartjs": "^5.3.0",
     "vue-js-counter": "^1.0.3",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

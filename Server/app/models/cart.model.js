@@ -1,14 +1,14 @@
 module.exports = (mongoose) => {
   const cartSchema = new mongoose.Schema({
-    userId: { type: String, required: true },
+    user_sub: { type: String, required: true },
     cart_items: [{ type: String, required: true }],
   });
 
-  cartSchema.methods.toJSON = function () {
-    const { __v, _id, ...object } = this.toObject();
-    object.id = _id;
-    return object;
-  };
+  // cartSchema.methods.toJSON = function () {
+  //   const { __v, _id, ...object } = this.toObject();
+  //   object.id = _id;
+  //   return object;
+  // };
 
   const Cart = mongoose.model("Cart", cartSchema);
   return Cart;

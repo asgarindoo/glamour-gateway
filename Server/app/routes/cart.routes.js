@@ -3,12 +3,12 @@ module.exports = (app) => {
   const router = require("express").Router();
 
   // Add a product to the cart
-  router.post("/cart/:id", carts.addToCart);
+  router.post("/cart/:sub", carts.addToCart);
   // Get all cart items
   router.get("/cart", carts.getAllCartItems);
 
   // Get a single cart item by ID
-  router.get("/cart/:id", carts.getCartItemById);
+  router.get("/cart/:sub", carts.getCartItemBySub);
 
   //   // Update a cart item by ID
   //   router.put("/cart/:id", carts.updateCartItemById);

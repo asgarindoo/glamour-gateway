@@ -4,26 +4,30 @@ const Cart = db.cart;
 const Product = db.product;
 
 // Controller to handle adding a product to the cart
-exports.addToCart = (req, res) => {
-  const id = Number(req.params.id);
+exports.addToCart = async (req, res) => {
+  const sub = req.params.sub;
   const productId = String(req.body.productId);
 
-  Cart.updateOne(
-    { user_id: id },
-    {
-      $push: {
-        cart_items: productId, 
-      },
-    }
-  )
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      res.status(409).send({
-        message: err.message,
-      });
-    });
+  if (!sub || !productId) {
+    return res.status(400).json({ message: "Sub and Product ID are required" });
+  }
+
+  let cart = await Cart.findOne({ user_sub: sub });
+
+  if (!cart) {
+    cart = new Cart({ user_sub: sub, cart_items: [productId] });
+  } else {
+    // Jika keranjang ditemukan, tambahkan productId ke dalam cart_items
+    cart.cart_items.push(productId);
+  }
+
+  // Simpan perubahan ke dalam database
+  try {
+    await cart.save();
+    res.status(200).json({ message: "Item added to cart successfully", cart });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error", error });
+  }
 };
 
 // Controller to get all cart items
@@ -36,16 +40,16 @@ exports.getAllCartItems = async (req, res) => {
   }
 };
 
-// Controller to get a single cart item by ID
-exports.getCartItemById = async (req, res) => {
+// Controller to get a single cart item by user_sub
+exports.getCartItemBySub = async (req, res) => {
   try {
-    const id = Number(req.params.id);
+    const sub = req.params.sub;
 
-    // Cari keranjang berdasarkan ID pengguna
+    // Cari keranjang berdasarkan user_sub
     const cart = await Cart.aggregate([
       {
         $match: {
-          user_id: id,
+          user_sub: sub,
         },
       },
       {
