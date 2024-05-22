@@ -480,7 +480,7 @@ export default {
         },
         {
           name: "JNE Express",
-          logo: "https://pkk.uma.ac.id/wp-content/uploads/2023/06/jne2.png",
+          logo: "https://iconlogovector.com/uploads/images/2023/11/lg-655d05c65a6fd-jne-express-across.png",
         },
         // Tambahan layanan pengiriman lainnya
       ],

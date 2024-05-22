@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { useAuth0 } from "@auth0/auth0-vue";
 
 export default {
@@ -146,20 +146,7 @@ export default {
     const toggleDropdown = () => {
       isDropdownOpen.value = !isDropdownOpen.value;
     };
-
-    // Fungsi untuk menyimpan data pengguna ke local storage setelah pengguna berhasil masuk
-    const saveUserToLocalStorage = (userData) => {
-      localStorage.setItem("sub", JSON.stringify(userData));
-    };
-
-    // Dijalankan setelah komponen dimuat
-    onMounted(() => {
-      // Periksa apakah pengguna telah masuk dan simpan data pengguna ke local storage jika ya
-      if (isAuthenticated.value && user.value) {
-        saveUserToLocalStorage(user.value);
-        saveUserToLocalStorage(user.value.sub);
-      }
-    });
+    // console.log("user:", user);
 
     // Gunakan `return` untuk mengekspos ke template
     return {
